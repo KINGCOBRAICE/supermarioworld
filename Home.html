@@ -1,0 +1,238 @@
+<!-- http://downloads.khinsider.com/game-soundtracks/browse/S -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Super Mario World PC (Super Mario Bros and Super Mario World Knockoff/Bootleg)</title>
+    <style>
+                @font-face { 
+  font-family: 'PikaYoshi'; 
+  font-weight: normal;
+src: url('fonts/SuperMario256.ttf'); 
+}
+        *{
+            padding:0px;
+            margin:0px;
+        }
+
+        p{
+text-align: center;
+    font-weight: normal;
+    font-family: 'PikaYoshi'; 
+            font-size: 25px;
+            color: #000000;
+            text-align: center;
+        
+        }
+h1{
+text-align: center;
+    font-weight: normal;
+    font-family: 'PikaYoshi'; 
+            font-size: 35px;
+            color: #000000;
+
+            text-align: center;
+        }
+        body{       text-align: center;
+            width:100%;
+            height:100%;
+            font-family: 'PikaYoshi'; 
+            font-family: 'PikaYoshi'; 
+            background: #01e1ff;
+            background-size: cover;
+  
+         /*background-color: #99FFCC; FFCCE5
+            //background-position-x:270px ;
+            //background-position-y:10px;background: radial-gradient(circle, #FCC 20%, #99F);*/
+        }
+      
+        #play{
+            border-radius: 10px;
+            font-size: 30px;
+            font-weight: bolder;
+            background-color: rgb(197, 45, 60);  font-family: 'PikaYoshi'; 
+            border:2px solid rgb(0, 0, 0);
+            box-shadow: 2px 2px 5px rgb(197, 45, 60);
+            color: #ffffff;
+            width:200px;
+            height:50px;
+            margin-left: -100px;
+            position: fixed;
+            text-align: center;
+        }
+        #ashnpikachu{
+            position: absolute;
+            background-image: url("assets/pika");
+            background-repeat: no-repeat;
+            background-size: contain;
+            margin-left: 0px;
+            margin-top: 100px;
+            width:500px;
+            height:400px;
+            animation: moveAsh 4s linear infinite;
+        }
+        @font-face { 
+  font-family: 'PikaYoshi'; 
+  font-weight: normal;
+src: url('fonts/SuperMario256.ttf'); 
+}
+
+        #ash2{
+            position: absolute;
+            background-image: url("Luigi_Left.png");
+            background-repeat: no-repeat;
+            background-size: contain;
+            margin-left: 1000px;
+            margin-top: 100px;
+            width:1100px;
+            height:400px;
+            animation: Ash2 4s ease 1;
+        }
+        #charizard{
+            position: absolute;
+            background-image: url("Mario.png");
+            background-repeat: no-repeat;
+            background-size: contain;
+            margin-left: 300px;
+            margin-top: 150px;
+            width:600px;
+            height:380px;
+            animation: char 4s ease-out 1;
+        }
+        @keyframes moveAsh {
+            0%{
+                transform: rotateZ(0deg);
+            }
+            25%{
+                transform: rotateZ(-10deg);
+            }
+            50%{
+                transform: rotateZ(0deg);
+            }
+            75%{
+                transform: rotateZ(10deg);
+            }
+            100%{
+                transform: rotateZ(0deg);
+            }
+        }
+
+        @keyframes Ash2 {
+            0%{
+                margin-top:-400px;
+            }
+            50%{
+                margin-bottom: -400px;
+            }
+            100%{
+                margin-top: 100px;
+            }
+        }
+
+        @keyframes char{
+            0%{
+                margin-left:-700px;
+            }
+            50%{
+              margin-left: 400px;
+            }
+            100%{
+                margin-left: 200px;
+            }
+        }
+        @keyframes move{
+            0%{
+                opacity: 0;
+                background-image: none;
+                width:100px;
+                height:50px;
+                transform: rotateZ(0deg);
+            }
+            50%{
+                opacity: 0;
+                width:100px;
+                height:50px;
+                transform: rotateZ(0deg);
+            }
+            100%{
+                opacity: 1;
+                width:500px;
+                height:400px;
+                transform: rotateZ(720deg);
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+<div id = "ash2"> </div>
+<br>
+<div id = "charizard"> </div>
+<div id = "poke" > <h1 class= "text-center"> SUPER MARIO WORLD PC</h1> </div> 
+<audio id="Yoshi" src="Victory.mp3" preload="auto"></audio>
+
+<audio autoplay loop id ="myaudio">
+    <Source src = "Choose a Game (SMA, SMA2, SMA3, SMA4).mp3">
+        </audio>
+    <br>    <br>    <br>    <br><input type="button"  class = "text-center" name = "button" id = "play"
+onclick='window.location.assign("javascript:play_single_sound();")' value=" PLAY">
+
+
+    
+    <br>    <br>  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<div id = "poke" > <p class = "text-center">&copy; 2019 by Daniel Filz. </p> </div><br><br>
+<div id = "poke" > <p class = "text-center">Music, Game images, sound effects &copy; Nintendo </p> </div><br<br>
+<div id = "poke" > <p class = "text-center"></p> </div>
+
+<script>
+        var audio = document.getElementById("myaudio");
+audio.volume = 0.9;
+    var count = 10,left,right,chari = document.getElementById("charizard");
+    var lives = 4;
+    function start() {
+        left = setInterval("charizardMoveLeft()",10);
+    }
+    function charizardMoveLeft() {
+        if(count > 100){
+            chari.style.marginLeft = count + "px" ;
+            count = count - 2;
+        }else{
+            stopLeft();
+        }
+    }
+
+    function charizardMoveRight(){
+        if(count <= window.innerWidth + 10){
+            chari.style.marginLeft = count + "px" ;
+            count = count + 7;
+        }else{
+            stopRight();
+        }
+    }
+    function stopLeft(){
+        clearInterval(left);
+        right = setInterval("charizardMoveRight()",10);
+    }
+    function stopRight(){
+        clearInterval(right);
+        document.location.assign('about.html');
+    }
+    
+    localStorage.setItem("mylives",lives);
+
+</script>
+</body>
+</html>
+<script>
+                          
+                     
+    function play_single_sound() {
+      document.getElementById('Yoshi').play();
+            
+             var audio = document.getElementById("myaudio");
+audio.volume = 0.0;
+             setTimeout(function(){ window.location.replace("Game.html");}, 2000);
+           }
+    
+         </script>

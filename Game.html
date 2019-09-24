@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>About</title>
+  
+    <link href="Style-Sheets/game.css" rel="stylesheet" /> </head>
+    <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono" rel="stylesheet">
+        
+
+    </head>
+
+    <body>
+        <style>
+                @font-face { 
+  font-family: 'PikaYoshi'; 
+  font-weight: normal;
+src: url('fonts/SuperMario256.ttf'); 
+}
+        body{
+            font-family: 'PikaYoshi'; 
+            background: #01e1ff;
+            background-size: cover;
+            text-align: center;
+   
+        }
+        h7{
+            font-size: 40px;  font-family: 'PikaYoshi';             color: #000000;
+        }
+        h5{
+            font-size: 35px;
+            text-align: center;  font-family: 'PikaYoshi';           color: #000000
+        }
+     p{
+            font-size: 25px;  font-family: 'PikaYoshi';            color: #000000
+        }
+        .btn {
+            cursor: pointer;
+            padding: 15px;
+       
+            text-align: center;
+            background-color: blue;
+            color: white;
+        }
+        
+        .page {
+            display: none;
+            margin: auto;
+            margin-top: 40px;
+        }
+        
+        .visible {
+            display: block;
+        }
+        
+        .pop {
+            border: 1px solid #ddd;
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            text-align: center;
+            vertical-align: middle;
+            color: #ddd;
+            font-size: 2em;
+  
+        }
+        
+        .row {
+            display: block;
+        }
+        
+        .game {
+            border: 1px solid black;
+        }
+        
+        .active {
+            border: 1px solid blue;
+            background-color: aliceblue;
+            color: black;
+            box-shadow: 5px 5px #555;
+            cursor: pointer;
+        }
+        
+        .stats {
+            height: 50px;
+            background-color: black;
+            color: white;
+            font-size: 1.5em;
+            text-align: center;
+        }
+
+        #play:hover{
+            background-color: yellow;
+            color:royalblue;
+            border:5px solid royalblue;
+            box-shadow: 2px 2px 5px royalblue;
+        }
+        #play{
+            text-align: center;
+            border-radius: 10px;
+            font-size: 30px;
+            font-weight: bolder;
+            background-color: #1c70ff;
+            border:2px solid yellow;
+            box-shadow: 2px 2px 5px yellow;
+            color: #fffe00;
+            width:200px;
+            height:50px;
+            margin-top:530px;
+            margin-left: 590px;
+        }
+        #tryagain{
+            border-radius: 10px;
+            font-size: 30px;
+            font-weight: bolder;
+            background-color: rgb(197, 45, 60);  font-family: 'PikaYoshi'; 
+            border:2px solid rgb(0, 0, 0);
+            box-shadow: 2px 2px 5px rgb(197, 45, 60);
+            color: #ffffff;
+            width:200px;
+            height:50px;
+            margin-left: -100px;
+            position: fixed;
+        }
+</style>
+                   
+            <div class="jumbotron">
+                    <div class="container">
+                     
+                     <div align= center>
+               
+                  <div class="jumbotron">
+                    <div class="container">
+                        <BR> 
+               <h7>What is this game about?</h7>
+                  
+     <p class= "text-justify"> In this sequel game to Super Mario Bros PC, <br> the player must reach the goal without being ambushed by the enemies. <br> Points add up if you get coins or defeat enemies.
+
+             </p>
+      
+             <input type="button"  class = "center" name = "button" id = "tryagain"
+             onclick='window.location.assign("javascript:play_single_sound();")' value="Play">
+<br><BR><BR><BR>
+             <input type="button" id = "tryagain"
+             onclick='window.location.assign("javascript:play_yoshi_sound();")' value="Leave">
+        <audio autoplay loop id="myaudio">
+                    <source src="Yoshi's House (Super Mario World, Super Mario Advance 2).mp3" >
+                  </audio>
+                
+                <script>
+                    var audio = document.getElementById("myaudio");
+                    audio.volume = 0.9;
+                    function play_single_sound() {
+                         var audio = document.getElementById("myaudio");
+                     audio.volume = 0.0;
+                     var audio = new Audio('Victory.mp3');
+      audio.play()
+      
+ setTimeout(function(){ window.location.replace("Choose.html");}, 1000);
+ }
+ function play_yoshi_sound() {
+                         var audio = document.getElementById("myaudio");
+                     audio.volume = 0.0;
+                     var audio = new Audio('SMA2-Enter.wav');
+      audio.play()
+
+             
+ setTimeout(function(){ window.location.replace("Home.html");}, 1000);
+ }
+                  </script>
+          
